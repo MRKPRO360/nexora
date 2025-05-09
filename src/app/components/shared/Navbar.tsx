@@ -28,7 +28,10 @@ function Navbar() {
           <h1 className="hidden text-2xl font-semibold md:block">Exclusive</h1>
 
           {/* HAMBURGER MENU */}
-          <button className="text-xl md:hidden" onClick={toggleSidebar}>
+          <button
+            className="text-xl cursor-pointer md:hidden"
+            onClick={toggleSidebar}
+          >
             {isOpen ? <FaTimes /> : <FaBars />}
           </button>
 
@@ -73,12 +76,13 @@ function Navbar() {
 
       {/* SIDEBAR ITEMS */}
       <div
-        className={`fixed top-0 left-0 h-full w-64 bg-bgLight dark:bg-bgDark dark:text-textLight transform ${
+        // className={`fixed top-0 left-0 h-full w-64 bg-bgLight dark:bg-bgDark dark:text-textLight transform ${
+        className={`fixed top-0 left-0 h-full w-64 bg-bgDark transform ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 md:hidden z-50`}
       >
         <button
-          className="absolute text-xl top-4 right-4"
+          className="absolute text-xl top-4 right-4 text-primaryLight cursor-pointer"
           onClick={toggleSidebar}
           aria-label="Close Menu"
         >
@@ -90,8 +94,8 @@ function Navbar() {
               href={item.path}
               key={index}
               className="text-textGray hover:text-primaryDark"
-              activeClassName="text-primaryDark font-semibold"
-              //   onClick={toggleSidebar} // Close sidebar on click
+              activeClassName="font-semibold text-primaryLight"
+              toggleSidebar={toggleSidebar} // Close sidebar on click
               //   className={({ isActive }) =>
               //     isActive
               //       ? 'dark:text-textLight text-primaryDark font-semibold'
