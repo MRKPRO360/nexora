@@ -23,48 +23,50 @@ function Navbar() {
   return (
     <div>
       <SmallNav />
-      <nav className="flex flex-wrap items-center justify-between py-2 mb-4 text-black transition-colors duration-300 border-b-2 mt-9 border-b-secondary">
-        <h1 className="hidden text-2xl font-semibold md:block">Exclusive</h1>
+      <nav className="py-2 mb-4 text-black transition-colors duration-300 border-b-2 mt-8 border-b-secondary px-2 2xl:px-0">
+        <div className="max-w-[1545px] mx-auto flex flex-wrap items-center justify-between ">
+          <h1 className="hidden text-2xl font-semibold md:block">Exclusive</h1>
 
-        {/* HAMBURGER MENU */}
-        <button className="text-xl md:hidden" onClick={toggleSidebar}>
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </button>
+          {/* HAMBURGER MENU */}
+          <button className="text-xl md:hidden" onClick={toggleSidebar}>
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
 
-        {/* DESKTOP NAVIGATION */}
-        <ul className="items-center justify-between hidden gap-12 list-none md:flex">
-          {navItems.map((el, i) => (
-            <NavLink
-              href={el.path}
-              className="border-b-transparent"
-              activeClassName="border-b-bgDark"
-              //   className={({ isActive }) =>
-              //     isActive
-              //       ? 'border-b-2 border-b-bgDark transition duration-300'
-              //       : 'border-b-2 border-b-transparent'
-              //   }
-              key={i}
-            >
-              {el.text}
-            </NavLink>
-          ))}
-        </ul>
+          {/* DESKTOP NAVIGATION */}
+          <ul className="items-center justify-between hidden gap-12 list-none md:flex">
+            {navItems.map((el, i) => (
+              <NavLink
+                href={el.path}
+                className="border-b-transparent"
+                activeClassName="border-b-bgDark"
+                //   className={({ isActive }) =>
+                //     isActive
+                //       ? 'border-b-2 border-b-bgDark transition duration-300'
+                //       : 'border-b-2 border-b-transparent'
+                //   }
+                key={i}
+              >
+                {el.text}
+              </NavLink>
+            ))}
+          </ul>
 
-        <div className="flex items-center justify-between w-full gap-6 mt-3 lg:mt-0 lg:w-auto">
-          <div className="relative mr-auto">
-            <input
-              className="block pl-5 pr-3 py-[7px] rounded-md bg-secondaryPink placeholder:text-xs placeholder:text-textGray outline-none transition duration-300 focus:ring-1 focus:ring-textDark text-textDark text-md
+          <div className="flex items-center justify-between w-full gap-6 mt-3 lg:mt-0 lg:w-auto">
+            <div className="relative mr-auto">
+              <input
+                className="block pl-5 pr-3 py-[7px] rounded-md bg-secondaryPink placeholder:text-xs placeholder:text-textGray outline-none transition duration-300 focus:ring-1 focus:ring-textDark text-textDark text-md
               sm:w-96 md:w-[450px] lg:w-auto
               "
-              type="text"
-              placeholder="What are you looking for?"
-            />
-            <GoSearch className="absolute right-3 top-[25%] text-2xl" />
-          </div>
+                type="text"
+                placeholder="What are you looking for?"
+              />
+              <GoSearch className="absolute right-3 top-[25%] text-2xl" />
+            </div>
 
-          <div className="flex items-center gap-4 text-2xl">
-            <GoHeart />
-            <IoCartOutline />
+            <div className="flex items-center gap-4 text-2xl">
+              <GoHeart />
+              <IoCartOutline />
+            </div>
           </div>
         </div>
       </nav>

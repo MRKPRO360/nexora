@@ -4,12 +4,10 @@ import React from 'react';
 
 function HomePageLayout({ children }: { children: React.ReactNode }) {
   return (
-    // <div className="max-w-[1545px] mx-auto">
-    <div className="max-w-[1170px] mx-auto px-2 2xl:px-0">
+    <div>
       <Navbar />
-      {children}
+      <div className="max-w-[1170px] mx-auto px-2 2xl:px-0">{children}</div>
       <Footer />
-      {/* </div> */}
     </div>
   );
 }
