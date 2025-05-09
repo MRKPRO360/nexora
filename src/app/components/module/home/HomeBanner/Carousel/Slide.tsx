@@ -26,13 +26,13 @@ function Slide() {
         </h1>
 
         <button
-          className={`text-[16px] font-medium underline underline-bg-white ${flexICenter} gap-2 pb-12 pt-1`}
+          className={`text-[16px] font-medium underline underline-bg-white ${flexICenter} gap-2 pb-12 pt-1 cursor-pointer`}
         >
           <span>Shop Now</span>
           <BsArrowRight className="text-[24px]" />
         </button>
       </div>
-      <div className="">
+      <div className="flex-1">
         <Image className="w-full h-full" src={hero} alt="iphone" />
       </div>
     </div>

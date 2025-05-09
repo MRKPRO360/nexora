@@ -17,8 +17,8 @@ function Carousel() {
       spaceBetween={50}
       loop={true}
       autoplay={{
-        delay: 3000,
-        disableOnInteraction: false,
+        delay: 100000,
+        // disableOnInteraction: false,
       }}
     >
       <SwiperSlide className="pt-10 px-11">
