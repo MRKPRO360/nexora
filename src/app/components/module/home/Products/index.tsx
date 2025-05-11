@@ -13,6 +13,7 @@ import Cta from '@/app/components/utils/Cta';
 
 const items: IItem[] = [
   {
+    id: 1,
     title: 'Breed Dry Dog Food',
     price: '100',
     ratings: '3',
@@ -20,6 +21,7 @@ const items: IItem[] = [
     img: lays,
   },
   {
+    id: 2,
     title: 'CANON EOS DSLR Camera',
     price: '360',
     ratings: '4',
@@ -27,6 +29,7 @@ const items: IItem[] = [
     img: canon,
   },
   {
+    id: 3,
     title: 'ASUS FHD Gaming Laptop',
     price: '700',
     ratings: '5',
@@ -34,6 +37,7 @@ const items: IItem[] = [
     img: laptop,
   },
   {
+    id: 4,
     title: 'Curology Product Set',
     price: '500',
     ratings: '4',
@@ -41,6 +45,7 @@ const items: IItem[] = [
     img: cream,
   },
   {
+    id: 5,
     title: 'Kids Electric Car',
     price: '960',
     ratings: '5',
@@ -50,6 +55,7 @@ const items: IItem[] = [
     variant: ['red', 'black'],
   },
   {
+    id: 6,
     title: 'Jr. Zoom Soccer Cleats',
     price: '116',
     ratings: '5',
@@ -58,6 +64,7 @@ const items: IItem[] = [
     variant: ['red', 'yellow'],
   },
   {
+    id: 7,
     title: 'GP11 Shooter USB Gamepad',
     price: '660',
     ratings: '4',
@@ -67,6 +74,7 @@ const items: IItem[] = [
     variant: ['black', 'red'],
   },
   {
+    id: 8,
     title: 'Quilted Satin Jacket',
     price: '660',
     ratings: '4',
