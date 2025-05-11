@@ -12,6 +12,7 @@ import { NXContentModal } from '@/app/components/utils/NXContentModal';
 
 function ProductCard({ product }: { product: IItem }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  console.log(product);
 
   return (
     <div className="sm:w-[270px]">
@@ -27,7 +28,7 @@ function ProductCard({ product }: { product: IItem }) {
               width={300}
               height={300}
               className="mx-auto px-[35px] py-8 w-[180px] h-[190px] "
-              src={product.img.src}
+              src={product?.img}
               alt="gamepad"
             />
             <button className="absolute bottom-0 left-0 right-0 bg-bgDark text-bgLight py-2 px-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
@@ -89,9 +90,10 @@ function ProductCard({ product }: { product: IItem }) {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="relative h-96 bg-gray-100 rounded-lg overflow-hidden">
             <Image
-              src={product.img.src}
+              src={product.img}
               alt={product.title}
-              fill
+              width={300}
+              height={300}
               className="object-contain"
               sizes="(max-width: 768px) 100vw, 50vw"
             />

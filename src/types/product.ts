@@ -1,4 +1,4 @@
-import { StaticImageData } from 'next/image';
+// import { StaticImageData } from 'next/image';
 
 export interface IItem {
   id: number;
@@ -10,9 +10,9 @@ export interface IItem {
   ratings: string;
   ratingQuantity: number;
   condition?: string;
-  img: StaticImageData;
+  img: string;
   variant?: string[];
-  images?: StaticImageData[];
+  images?: string[];
   keyFeatures?: string[];
   description?: string;
 }

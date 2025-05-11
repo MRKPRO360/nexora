@@ -8,11 +8,11 @@ export const products = [
     ecommercePrice: '90',
     ratings: '3',
     ratingQuantity: 35,
-    img: '/public/images/products/lays.jpg',
+    img: '/images/products/lays.png',
     images: [
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
     ], // Additional images
     keyFeatures: [
       'High protein content',
@@ -32,11 +32,11 @@ export const products = [
     ecommercePrice: '340',
     ratings: '4',
     ratingQuantity: 95,
-    img: '/public/images/products/lays.jpg',
+    img: '/images/products/lays.png',
     images: [
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
     ],
     keyFeatures: [
       '24.1MP APS-C CMOS Sensor',
@@ -56,11 +56,11 @@ export const products = [
     ecommercePrice: '690',
     ratings: '5',
     ratingQuantity: 325,
-    img: '/public/images/products/lays.jpg',
+    img: '/images/products/lays.png',
     images: [
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
     ],
     keyFeatures: [
       '15.6" FHD 144Hz Display',
@@ -79,11 +79,11 @@ export const products = [
     ecommercePrice: '475',
     ratings: '4',
     ratingQuantity: 145,
-    img: '/public/images/products/lays.jpg',
+    img: '/images/products/lays.png',
     images: [
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
     ],
     keyFeatures: [
       'Customized skincare formula',
@@ -102,10 +102,11 @@ export const products = [
     ratings: '5',
     ratingQuantity: 65,
     condition: 'new',
+    img: '/images/products/lays.png',
     images: [
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
     ],
     variant: ['red', 'black'],
     keyFeatures: [
@@ -124,10 +125,11 @@ export const products = [
     ecommercePrice: '105',
     ratings: '5',
     ratingQuantity: 35,
+    img: '/images/products/lays.png',
     images: [
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
+      '/images/products/boot.png',
+      '/images/products/boot.png',
+      '/images/products/boot.png',
     ],
     variant: ['red', 'yellow'],
     keyFeatures: [
@@ -146,10 +148,11 @@ export const products = [
     ecommercePrice: '640',
     ratings: '4',
     ratingQuantity: 35,
+    img: '/images/products/lays.png',
     images: [
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
     ],
     condition: 'new',
     variant: ['black', 'red'],
@@ -169,10 +172,11 @@ export const products = [
     ecommercePrice: '650',
     ratings: '4',
     ratingQuantity: 55,
+    img: '/images/products/lays.png',
     images: [
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
-      '/public/images/products/lays.jpg',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
     ],
     variant: ['black', 'red'],
     keyFeatures: [
