@@ -17,18 +17,18 @@ function Carousel() {
       spaceBetween={50}
       loop={true}
       autoplay={{
-        delay: 10000,
+        delay: 5000,
         // disableOnInteraction: false,
       }}
     >
-      <SwiperSlide className="pt-10 px-11">
+      <SwiperSlide className="pt-10 lg:px-11">
         <Slide />
       </SwiperSlide>
 
-      <SwiperSlide className="pt-10 px-11">
+      <SwiperSlide className="pt-10 lg:px-11">
         <Slide />
       </SwiperSlide>
-      <SwiperSlide className="pt-10 px-11">
+      <SwiperSlide className="pt-10 lg:px-11">
         <Slide />
       </SwiperSlide>
     </Swiper>

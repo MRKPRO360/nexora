@@ -49,18 +49,18 @@ export const NXContentModal = ({
 
   if (!isOpen) return null;
 
-  const sizeClasses = {
-    sm: 'max-w-sm',
-    md: 'max-w-md',
-    lg: 'max-w-lg',
-    xl: 'max-w-2xl',
-  };
+  // const sizeClasses = {
+  //   sm: 'max-w-sm',
+  //   md: 'max-w-md',
+  //   lg: 'max-w-lg',
+  //   xl: 'max-w-2xl',
+  // };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-2 bg-gray-50/10 backdrop-blur-sm">
       <div
         ref={modalRef}
-        className={`relative w-full ${sizeClasses[size]} bg-white rounded-sm shadow-md overflow-hidden animate-fadeIn max-h-[90vh] overflow-y-auto`}
+        className={`relative w-full max-w-xl lg:max-w-2xl bg-white rounded-sm shadow-md overflow-hidden animate-fadeIn max-h-[80vh] overflow-y-auto`}
       >
         {/* Header with close button */}
         <div className="flex justify-end  bg-white ">
@@ -71,7 +71,7 @@ export const NXContentModal = ({
           )}
           <button
             onClick={onClose}
-            className=" p-1 text-gray-500 rounded-full hover:bg-gray-100 hover:text-gray-700 transition-colors cursor-pointer"
+            className=" p-2 m-2 text-gray-500 rounded-full hover:bg-gray-100 hover:text-gray-700 transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <IoMdClose className="text-2xl" />

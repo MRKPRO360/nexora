@@ -22,7 +22,7 @@ function Navbar() {
   return (
     <div>
       <SmallNav />
-      <nav className="py-2 mb-4 text-black transition-colors duration-300 border-b-2 mt-8 border-b-secondary px-2 2xl:px-0">
+      <nav className="py-2 text-black transition-colors duration-300 border-b-2 mt-8 border-b-secondary px-2 2xl:px-0 ">
         <div className="max-w-[1545px] mx-auto flex flex-wrap items-center justify-between ">
           <h1 className="hidden text-2xl font-semibold md:block">Exclusive</h1>
 

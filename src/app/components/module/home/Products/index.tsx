@@ -5,6 +5,7 @@ import SectionTitle from '@/app/components/utils/SectionTitle';
 import Cta from '@/app/components/utils/Cta';
 import { useEffect, useState } from 'react';
 import { getProducts } from '@/app/service/products';
+import ProductCardSkeleton from './ProductCardSkeleton';
 
 function Products() {
   const [products, setProducts] = useState<IItem[]>([]);
@@ -13,6 +14,8 @@ function Products() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        // TO SHOW SKELETON UI
+        await new Promise((resolve) => setTimeout(resolve, 3500));
         const data = await getProducts();
         setProducts(data);
       } catch (error) {
@@ -24,7 +27,14 @@ function Products() {
     fetchProducts();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading)
+    return (
+      <div className="mt-[60px] grid grid-cols-1  gap-3 sm:grid-cols-3 xl:grid-cols-4  md:gap-x-[30px] md:gap-y-15">
+        {[1, 2, 3, 4, 5, 6, 7, 8].map((el, id) => (
+          <ProductCardSkeleton key={el} />
+        ))}
+      </div>
+    );
 
   return (
     <div className="mb-[67px] mt-[60px]">
@@ -33,7 +43,7 @@ function Products() {
         <h1 className="text-4xl font-semibold">Explore Our Products</h1>
       </div>
 
-      <div className="mt-[60px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[30px] gap-y-15">
+      <div className="mt-[60px] grid grid-cols-1 sm:grid-cols-3  xl:grid-cols-4 gap-x-5 md:gap-x-[30px] gap-y-5 md:gap-y-15">
         {products.map((product: IItem, key: number) => (
           <ProductCard key={key} product={product} />
         ))}

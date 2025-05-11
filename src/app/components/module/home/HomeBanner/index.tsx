@@ -4,10 +4,10 @@ import Carousel from './Carousel';
 function HomeBanner() {
   return (
     <div className="flex">
-      <div className="basis-56">
+      <div className="hidden lg:block md:basis-56 ">
         <SideNav />
       </div>
-      <div className="w-[82%]">
+      <div className="w-full lg:w-[75%]">
         <Carousel />
       </div>
     </div>

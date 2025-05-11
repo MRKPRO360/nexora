@@ -32,7 +32,7 @@ function ProductCard({ product }: { product: IItem }) {
   };
 
   return (
-    <div className="sm:w-[265px]">
+    <div className="md:w-[265px]">
       <div className="relative bg-secondary">
         {product?.condition && (
           <span className="absolute px-3 py-1 text-xs rounded-md top-3 left-3 bg-btnBgColor text-bgLight">
@@ -60,14 +60,8 @@ function ProductCard({ product }: { product: IItem }) {
         </div>
         <div className="absolute space-y-2 right-3 top-3">
           <GoHeart className="p-1 text-3xl rounded-full cursor-pointer bg-bgLight" />
-          {/* <Link href={`product/${product.id}`}>
+          <button onClick={() => setIsModalOpen(true)}>
             <IoEyeOutline className="p-1 text-3xl rounded-full cursor-pointer bg-bgLight" />
-          </Link> */}
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="p-1 text-3xl rounded-full cursor-pointer bg-bgLight"
-          >
-            <IoEyeOutline />
           </button>
         </div>
       </div>
@@ -111,14 +105,13 @@ function ProductCard({ product }: { product: IItem }) {
       >
         {/* JSX INSIDE THE MODEL */}
         <div className="grid md:grid-cols-2 gap-8">
-          <div className="relative h-96 bg-gray-100 rounded-lg overflow-hidden">
+          <div className="relative w-30 md:w-full md:max-h-80 bg-gray-100 rounded-sm overflow-hidden">
             <Image
               src={product.img}
               alt={product.title}
               width={300}
               height={300}
-              className="object-contain"
-              sizes="(max-width: 450px) 50vw, 20vw"
+              className="object-cover w-full"
             />
           </div>
 
