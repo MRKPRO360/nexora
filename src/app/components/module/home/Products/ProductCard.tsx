@@ -9,13 +9,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { NXContentModal } from '@/app/components/utils/NXContentModal';
+import { FaMinus, FaPlus } from 'react-icons/fa';
 
 function ProductCard({ product }: { product: IItem }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  console.log(product);
+  const [count, setCount] = useState(1);
+
+  const handleIncrement = () => {
+    setCount((prevCount) => prevCount + 1);
+  };
+  const handleDecrement = () => {
+    setCount((prevCount) => prevCount - 1);
+  };
 
   return (
-    <div className="sm:w-[270px]">
+    <div className="sm:w-[265px]">
       <div className="relative bg-secondary">
         {product?.condition && (
           <span className="absolute px-3 py-1 text-xs rounded-md top-3 left-3 bg-btnBgColor text-bgLight">
@@ -24,13 +32,15 @@ function ProductCard({ product }: { product: IItem }) {
         )}
         <div className="relative group">
           <div className="relative overflow-hidden">
-            <Image
-              width={300}
-              height={300}
-              className="mx-auto px-[35px] py-8 w-[180px] h-[190px] "
-              src={product?.img}
-              alt="gamepad"
-            />
+            <Link href={`/product/${product.id}`}>
+              <Image
+                width={300}
+                height={300}
+                className="mx-auto px-[35px] py-8 w-[180px] h-[190px] "
+                src={product?.img}
+                alt="gamepad"
+              />
+            </Link>
             <button className="absolute bottom-0 left-0 right-0 bg-bgDark text-bgLight py-2 px-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
               Add to Cart
             </button>
@@ -87,6 +97,7 @@ function ProductCard({ product }: { product: IItem }) {
         onClose={() => setIsModalOpen(false)}
         size="xl"
       >
+        {/* JSX INSIDE THE MODEL */}
         <div className="grid md:grid-cols-2 gap-8">
           <div className="relative h-96 bg-gray-100 rounded-lg overflow-hidden">
             <Image
@@ -95,57 +106,60 @@ function ProductCard({ product }: { product: IItem }) {
               width={300}
               height={300}
               className="object-contain"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-width: 450px) 50vw, 20vw"
             />
           </div>
 
           <div className="space-y-6">
+            {/* TITLE */}
+            <h2 className="text-xl font-bold text-gray-900">{product.title}</h2>
+
+            {/* PRICE */}
+            <div className="flex flex-wrap text-sm rounded-full text-bgLight gap-1">
+              <p className="px-2 py-1 rounded-full bg-bgDark ">
+                <span>Regular price:</span> ${product.regularPrice}
+              </p>
+              <p className="px-2 py-1 rounded-full bg-tertiary ">
+                {' '}
+                <span>Ecommerce price:</span> ${product.ecommercePrice}
+              </p>
+              <p className="px-2 py-1 rounded-full bg-btnBgColor ">
+                {' '}
+                <span>Special price:</span> ${product.specialPrice}
+              </p>
+            </div>
+
+            {/* KEY FEATURES */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900">
-                {product.title}
-              </h2>
-              {product.condition && (
-                <span className="inline-block mt-2 px-3 py-1 text-xs font-semibold rounded-full bg-green-100 text-green-800">
-                  {product.condition}
+              <p className="font-semibold mb-2">Key Features</p>
+              <ul>
+                {product?.keyFeatures?.map((el: string, id: number) => (
+                  <li key={id}>{el}</li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CTA */}
+            <div className="flex  items-center gap-4">
+              {/* INCREMENT / DECREMENT */}
+              <div className="flex items-center ">
+                <FaMinus
+                  onClick={handleDecrement}
+                  className="text-3xl cursor-pointer rounded-l-[4px] border-y-2 border-l-2 border-l-gray-400 border-y-gray-400 text-bgDark"
+                />
+                <span className="border-2 w-11 px-3 self-stretch  border-gray-400">
+                  {count >= 1 && count <= 9 ? `0${count}` : count}
                 </span>
-              )}
-            </div>
-
-            <div className="flex items-center gap-2">
-              <div className="flex">
-                {[...Array(5)].map((_, i) =>
-                  i < Math.floor(Number(product.ratings)) ? (
-                    <TiStarFullOutline
-                      key={`star-${i}`}
-                      className="text-2xl text-yellow-400"
-                    />
-                  ) : (
-                    <TiStarOutline
-                      key={`star-${i}`}
-                      className="text-2xl text-yellow-400"
-                    />
-                  )
-                )}
+                <FaPlus
+                  onClick={handleIncrement}
+                  className="text-3xl cursor-pointer rounded-r-[4px] border-y-2 border-r-2 border-r-gray-400 border-y-gray-400 text-bgDark"
+                />
               </div>
-              <span className="text-gray-600">
-                ({product.ratingQuantity} reviews)
-              </span>
-            </div>
-
-            <div className="text-2xl font-bold text-blue-600">
-              ${product.price}
-            </div>
-
-            {/* <p className="text-gray-700">
-              {product.description || 'No description available'}
-            </p> */}
-
-            <div className="flex gap-4 pt-4">
-              <button className="flex-1 px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition-colors">
-                Add to Cart
-              </button>
-              <button className="flex-1 px-6 py-3 border border-blue-600 text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors">
-                Add to Wishlist
+              <button
+                className="py-1 px-2 bg-tertiary text-bgLight rounded-[4px] hover:bg-red-700/80 cursor-pointer transition duration-300 active:translate-y-1
+            "
+              >
+                Buy Now
               </button>
             </div>
           </div>

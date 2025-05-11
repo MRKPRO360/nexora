@@ -57,13 +57,13 @@ export const NXContentModal = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-50/10 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 bg-gray-50/10 backdrop-blur-sm">
       <div
         ref={modalRef}
         className={`relative w-full ${sizeClasses[size]} bg-white rounded-sm shadow-md overflow-hidden animate-fadeIn max-h-[90vh] overflow-y-auto`}
       >
         {/* Header with close button */}
-        <div className="flex justify-end p-4 bg-white ">
+        <div className="flex justify-end  bg-white ">
           {title && (
             <h3 className="text-xl md:text-2xl font-bold text-gray-900">
               {title}
