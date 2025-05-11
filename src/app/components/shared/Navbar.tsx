@@ -1,14 +1,13 @@
 'use client';
 import { GoSearch, GoHeart } from 'react-icons/go';
-import { IoCartOutline } from 'react-icons/io5';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import { useState } from 'react';
 import NavLink from '../utils/NavLink';
 import SmallNav from '../utils/SmallNav';
+import ExSheet from '../utils/EXSheet';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggleSidebar = () => {
     setIsOpen((prevOpen) => !prevOpen);
   };
@@ -66,9 +65,9 @@ function Navbar() {
               <GoSearch className="absolute right-3 top-[25%] text-2xl" />
             </div>
 
-            <div className="flex items-center gap-4 text-2xl">
-              <GoHeart />
-              <IoCartOutline />
+            <div className="flex items-center gap-4 ">
+              <GoHeart className="text-2xl" />
+              <ExSheet />
             </div>
           </div>
         </div>

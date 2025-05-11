@@ -10,8 +10,12 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { NXContentModal } from '@/app/components/utils/NXContentModal';
 import { FaMinus, FaPlus } from 'react-icons/fa';
+import { useAppDispatch } from '@/redux/hooks';
+import { addProducts } from '@/redux/features/cartSlice';
+import { toast } from 'sonner';
 
 function ProductCard({ product }: { product: IItem }) {
+  const dispatch = useAppDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [count, setCount] = useState(1);
 
@@ -20,6 +24,11 @@ function ProductCard({ product }: { product: IItem }) {
   };
   const handleDecrement = () => {
     setCount((prevCount) => prevCount - 1);
+  };
+
+  const handleAddCart = (product: IItem) => {
+    toast.success(`${product.title} added to cart :)`);
+    dispatch(addProducts(product));
   };
 
   return (
@@ -41,7 +50,10 @@ function ProductCard({ product }: { product: IItem }) {
                 alt="gamepad"
               />
             </Link>
-            <button className="absolute bottom-0 left-0 right-0 bg-bgDark text-bgLight py-2 px-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+            <button
+              onClick={() => handleAddCart(product)}
+              className="cursor-pointer absolute bottom-0 left-0 right-0 bg-bgDark text-bgLight py-2 px-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
+            >
               Add to Cart
             </button>
           </div>

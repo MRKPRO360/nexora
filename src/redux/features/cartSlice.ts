@@ -1,5 +1,6 @@
 import { IItem } from '@/types';
 import { createSlice } from '@reduxjs/toolkit';
+import { RootState } from '../store';
 
 export interface ICartProducts extends IItem {
   orderQuantity: number;
@@ -37,18 +38,23 @@ const cartSlice = createSlice({
       }
     },
     incrementOrderQuantity: (state, { payload }) => {
+      console.log({ payload });
+
       const productToAdd = state.products.find(
-        (product) => product.id === payload
+        (product) => product.id === payload.id
       );
 
       if (productToAdd) {
         productToAdd.orderQuantity += 1;
+        console.log({ payload });
+
+        console.log(productToAdd);
       }
       return;
     },
     decrementOrderQuantity: (state, { payload }) => {
       const productToAdd = state.products.find(
-        (product) => product.id === payload
+        (product) => product.id === payload.id
       );
 
       if (productToAdd) {
@@ -76,6 +82,9 @@ const cartSlice = createSlice({
     },
   },
 });
+
+// DEFAULT SELECTOR
+export const selectCartProducts = (state: RootState) => state.cart.products;
 
 export const {
   addProducts,
