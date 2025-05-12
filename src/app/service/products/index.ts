@@ -8,8 +8,8 @@ export const getProducts = async (): Promise<IItem[]> => {
 };
 
 export const getProductById = async (
-  id: number
+  id: string
 ): Promise<IItem | undefined> => {
   const products = await getProducts();
-  return products.find((product) => product.id === id);
+  return products.find((product) => product.id === Number(id));
 };

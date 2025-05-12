@@ -1,139 +1,173 @@
 import { FaHeart, FaMinus, FaPlus, FaStar } from 'react-icons/fa';
-
-interface IProductDetails {
-  productId: string;
-}
-
-import playstation1 from '@/assets/ProductDetails/playstation-1.png';
-import playstation2 from '@/assets/ProductDetails/playstation-2.png';
-import playstation3 from '@/assets/ProductDetails/playstation-3.png';
-import playstation4 from '@/assets/ProductDetails/playstation-4.png';
 import playstation5 from '@/assets/ProductDetails/playstation-5.png';
 import Image from 'next/image';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function ProductDetails({ productId }: IProductDetails) {
+import { IItem } from '@/types';
+import { TiStarFullOutline, TiStarOutline } from 'react-icons/ti';
+import { TbTruckDelivery } from 'react-icons/tb';
+
+import returnIcon from '@/assets/ProductDetails/return.png';
+import deliveryIcon from '@/assets/ProductDetails/deliver.png';
+import { GoHeart } from 'react-icons/go';
+
+function ProductDetails({ product }: { product: IItem | undefined }) {
   return (
-    <div className="px-4 md:px-12 lg:px-24 py-10">
+    <div className="mb-12 lg:mb-[74px]">
       {/* Breadcrumb */}
-      <nav className="text-sm text-gray-500 mb-6">
+      <nav className="text-sm text-gray-500 mb-6 my-10 md:my-14 lg:my-20">
         <span className="hover:underline cursor-pointer">Account</span> /{' '}
         <span className="hover:underline cursor-pointer">Gaming</span> /{' '}
-        <span className="text-black font-medium">Havic HV G-92 Gamepad</span>
+        <span className="text-black font-medium">{product?.title}</span>
       </nav>
 
-      {/* Product Grid */}
-      <div className="grid lg:grid-cols-2 gap-10">
+      {/* Product Flex Container */}
+      <div className="flex flex-col lg:flex-row gap-10 lg:gap-[70px]">
         {/* Left Side - Images */}
-        <div className="grid grid-cols-5 gap-4">
+        <div className="flex flex-col lg:flex-row gap-7 w-full lg:w-3/4">
           {/* Thumbnails */}
-          <div className="col-span-1 flex flex-col space-y-4">
-            {[1, 2, 3, 4].map((i) => (
-              <Image
-                key={i}
-                src={`/playstation${i}.png`}
-                width={20}
-                height={20}
-                alt={`gamepad thumbnail ${i}`}
-                className="w-full h-20 object-contain border hover:border-black cursor-pointer"
-              />
+          <div className="flex lg:flex-col justify-between gap-4  flex-wrap">
+            {product?.images?.map((src: string, index: number) => (
+              <div key={index} className="flex-shrink-0">
+                <Image
+                  src={src}
+                  width={121}
+                  height={125}
+                  alt={`${src}`}
+                  className=" h-[125px] px-6 py-3 object-contain bg-secondary cursor-pointer hover:opacity-90 transition-opacity"
+                />
+              </div>
             ))}
           </div>
+
           {/* Main Image */}
-          <div className="col-span-4">
-            <Image
-              src={playstation5}
-              alt="main gamepad"
-              className="w-full object-contain rounded-lg bg-gray-100"
-            />
+          <div className="flex-1 grid place-content-center bg-secondary">
+            {product?.img && (
+              <Image
+                src={product?.img}
+                width={446}
+                height={315}
+                alt="main gamepad"
+                className="w-full max-w-[446px] h-[315px] object-cover rounded-lg "
+              />
+            )}
           </div>
         </div>
 
         {/* Right Side - Product Info */}
-        <div>
-          <h1 className="text-2xl font-semibold mb-2">Havic HV G-92 Gamepad</h1>
+        <div className="w-full lg:w-1/2">
+          <h1 className="text-2xl font-semibold mb-2">{product?.title}</h1>
 
           {/* Rating */}
-          <div className="flex items-center text-sm text-gray-600 mb-2">
-            <div className="flex text-yellow-400 mr-2">
-              {[...Array(4)].map((_, i) => (
-                <FaStar key={i} />
-              ))}
+          <div className="flex items-center text-sm text-gray-600 my-4">
+            <div className="flex items-center mr-2">
+              {new Array(Math.floor(Number(product?.ratings)))
+                .fill(0)
+                .map((_, index) => (
+                  <TiStarFullOutline
+                    key={`filled-${index}`}
+                    className="text-xl text-lightYellow"
+                  />
+                ))}
+
+              {new Array(5 - Math.floor(Number(product?.ratings)))
+                .fill(0)
+                .map((_, index) => (
+                  <TiStarOutline
+                    key={`outline-${index}`}
+                    className="text-xl text-lightYellow"
+                  />
+                ))}
             </div>
-            (150 Reviews){' '}
-            <span className="ml-4 text-green-600">| In Stock</span>
+            <span>({product?.ratingQuantity} Reviews)</span>
+            <span className="inline-block mx-4 bg-btnBgColor h-5 self-stretch w-[0.5px] "></span>
+            <span className=" text-btnBgColor">In Stock</span>
           </div>
 
-          <p className="text-2xl font-semibold mb-4">$192.00</p>
-          <p className="text-sm text-gray-500 mb-4">
-            PlayStation 5 Controller Skin High quality vinyl with air channel
-            adhesive for easy bubble free install & mess free removal. Pressure
-            sensitive.
+          <p className="text-2xl mt-4 mb-6 leading-6">
+            ${product?.regularPrice}
           </p>
+          <p className="text-sm mb-4">{product?.description}</p>
 
-          <hr className="my-4" />
+          <hr className="my-4 text-textGray/30" />
 
-          {/* Colour Selector */}
-          <div className="mb-4">
-            <p className="font-medium mb-2">Colours:</p>
-            <div className="flex gap-3">
-              <span className="w-5 h-5 rounded-full border border-gray-400 bg-black"></span>
-              <span className="w-5 h-5 rounded-full border border-gray-400 bg-red-500"></span>
+          <div className="space-y-4">
+            {/* Colour Selector */}
+            <div>
+              <p className="font-medium mb-2">Colours:</p>
+              <div className="flex gap-3">
+                <span className="w-5 h-5 rounded-full border border-gray-400 bg-black cursor-pointer hover:ring-2 hover:ring-gray-300 transition-all"></span>
+                <span className="w-5 h-5 rounded-full border border-gray-400 bg-red-500 cursor-pointer hover:ring-2 hover:ring-gray-300 transition-all"></span>
+              </div>
             </div>
-          </div>
 
-          {/* Size Selector */}
-          <div className="mb-6">
-            <p className="font-medium mb-2">Size:</p>
-            <div className="flex gap-2">
-              {['XS', 'S', 'M', 'L', 'XL'].map((size) => (
-                <button
-                  key={size}
-                  className={`px-3 py-1 border text-sm rounded ${
-                    size === 'M'
-                      ? 'bg-red-500 text-white'
-                      : 'border-gray-300 text-gray-700'
-                  }`}
-                >
-                  {size}
+            {/* Size Selector */}
+            <div className="flex items-center">
+              <p className="font-medium mr-6">Size:</p>
+              <div className="flex flex-wrap gap-4">
+                {['XS', 'S', 'M', 'L', 'XL'].map((size) => (
+                  <button
+                    key={size}
+                    className={`px-3 py-1 border text-sm rounded transition-colors ${
+                      size === 'M'
+                        ? 'bg-red-500 text-white border-red-500'
+                        : 'border-textGray/30 text-primaryDark hover:bg-gray-100'
+                    }`}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Quantity & Action */}
+            <div className="flex flex-wrap items-center gap-4 mb-6">
+              {/* Quantity Selector */}
+              <div className="flex items-center border border-textGray/30 rounded">
+                <button className="px-3 py-2 text-primaryDark hover:bg-gray-100 transition-colors">
+                  <FaMinus />
                 </button>
-              ))}
-            </div>
-          </div>
+                <span className="px-[34px] text-[20px] py-[6px] border-x border-textGray/30">
+                  2
+                </span>
+                <button className="px-3 py-2 text-primaryDark hover:bg-gray-100 transition-colors">
+                  <FaPlus />
+                </button>
+              </div>
 
-          {/* Quantity & Action */}
-          <div className="flex items-center space-x-4 mb-6">
-            {/* Quantity Selector */}
-            <div className="flex items-center border border-gray-300 rounded">
-              <button className="px-3 py-1 text-gray-700">
-                <FaMinus />
+              {/* Buy Button */}
+              <button className="bg-red-500 text-white px-12 py-[10px] rounded hover:bg-red-600 transition-colors">
+                Buy Now
               </button>
-              <span className="px-4 py-1">2</span>
-              <button className="px-3 py-1 text-gray-700">
-                <FaPlus />
+
+              {/* Favorite Icon */}
+              <button className="px-2 rounded py-2 text-primaryDark hover:bg-gray-100 transition-colors border border-textGray/30">
+                <GoHeart className="text-xl" />
               </button>
             </div>
-
-            {/* Buy Button */}
-            <button className="bg-red-500 text-white px-6 py-2 rounded hover:bg-red-600">
-              Buy Now
-            </button>
-
-            {/* Favorite Icon */}
-            <button className="border p-2 rounded hover:bg-gray-100">
-              <FaHeart />
-            </button>
           </div>
 
           {/* Delivery Info */}
-          <div className="border p-4 rounded space-y-4 text-sm">
-            <div>
-              <p className="font-medium">🚚 Free Delivery</p>
+          <div className="border border-textGray/30 rounded text-sm">
+            <div className="border-b border-b-textGray/30 pt-6 pb-4 px-4">
+              <div className="w-10 h-10">
+                <Image
+                  src={deliveryIcon}
+                  alt="delivery"
+                  width={40}
+                  height={40}
+                />
+              </div>
+              <span> Free Delivery </span>
+
               <p className="text-gray-500">
                 Enter your postal code for Delivery Availability
               </p>
             </div>
-            <div>
-              <p className="font-medium">↩️ Return Delivery</p>
+            <div className="pt-6 pb-4 px-4">
+              <div className="w-10 h-10">
+                <Image src={returnIcon} alt="delivery" width={40} height={40} />
+              </div>
+              <span>Return Delivery</span>
+
               <p className="text-gray-500">Free 30 Days Delivery Returns.</p>
             </div>
           </div>

@@ -41,15 +41,13 @@ function ProductCard({ product }: { product: IItem }) {
         )}
         <div className="relative group">
           <div className="relative overflow-hidden">
-            <Link href={`/product/${product.id}`}>
-              <Image
-                width={300}
-                height={300}
-                className="mx-auto px-[35px] py-8 w-[180px] h-[190px] "
-                src={product?.img}
-                alt="gamepad"
-              />
-            </Link>
+            <Image
+              width={300}
+              height={300}
+              className="mx-auto px-[35px] py-8 w-[180px] h-[190px] "
+              src={product?.img}
+              alt="gamepad"
+            />
             <button
               onClick={() => handleAddCart(product)}
               className="cursor-pointer absolute bottom-0 left-0 right-0 bg-bgDark text-bgLight py-2 px-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"
@@ -66,7 +64,9 @@ function ProductCard({ product }: { product: IItem }) {
         </div>
       </div>
       <div className="text-base font-medium">
-        <p className="mt-4 mb-2">{product.title}</p>
+        <Link href={`/product/${product.id}`}>
+          <p className="mt-4 mb-2">{product.title}</p>
+        </Link>
         <div className="flex gap-x-4">
           <span className="text-tertiary">${product.price}</span>
           <div className="flex items-center gap-2">

@@ -70,8 +70,8 @@ export default function SideNav() {
   ];
 
   return (
-    <div className="w-64 p-4 border-r border-gray-200 bg-white">
-      <nav className="space-y-1">
+    <div className="w-60 pt-10 pr-6 h-full border-r border-gray-200 bg-white">
+      <nav className="space-y-4">
         <Dropdown
           title="Women's Fashion"
           items={fashionItems}
@@ -104,7 +104,7 @@ export default function SideNav() {
           <Link
             key={item.path}
             href={item.path}
-            className="flex items-center px-4 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-50 hover:text-gray-900 transition-colors duration-200"
+            className="flex items-center  text-sm font-medium text-gray-700 rounded-lg  hover:text-gray-900 transition-colors duration-200"
           >
             {item.icon}
             <span className="ml-2">{item.text}</span>

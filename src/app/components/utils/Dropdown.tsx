@@ -57,10 +57,10 @@ export default function Dropdown({
     >
       <button
         type="button"
-        className={`flex items-center justify-between w-full px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 ${
+        className={`flex items-center justify-between w-full  text-sm font-medium rounded-lg transition-all duration-200 ${
           isOpen
             ? 'bg-gray-100 text-gray-900'
-            : 'text-gray-700 hover:bg-gray-50 hover:text-gray-900'
+            : 'text-gray-700  hover:text-gray-900'
         }`}
         aria-expanded={isOpen}
         aria-haspopup="true"
@@ -89,7 +89,7 @@ export default function Dropdown({
                 href={item.href}
                 className={`flex items-center px-4 py-2 text-sm text-gray-700 transition-colors duration-150 ${
                   index !== items.length - 1 ? 'border-b border-gray-100' : ''
-                } hover:bg-gray-50 hover:text-gray-900`}
+                } hover:bg-gray-50 `}
                 role="menuitem"
                 onClick={() => setIsOpen(false)}
               >

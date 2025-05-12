@@ -16,21 +16,29 @@ import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white px-6 md:px-12 lg:px-24 py-12">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+    <footer className="bg-black text-white ">
+      <div className="max-w-[1170px] px-4 2xl:px-0   mx-auto pt-20 pb-32  grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
         {/* Subscribe Section */}
         <div>
           <h3 className="text-xl  mb-4">Exclusive</h3>
           <p className="mt-[48px] mb-6">Subscribe</p>
           <p className="mb-4 text-sm ">Get 10% off your first order</p>
-          <div className="flex items-center border border-gray-600 rounded px-3 py-2">
+          <div className="flex items-center border border-primaryLight rounded relative">
+            {' '}
+            {/* Added relative here */}
             <input
               type="email"
               placeholder="Enter your email"
-              className="bg-transparent outline-none flex-1 text-sm"
+              className="bg-transparent outline-none flex-1 text-sm py-3 pl-4"
             />
-            <button className="text-white ml-2">
-              <Image src={send} width={24} height={24} alt="facebook" />
+            <button className="ml-2 absolute top-1/2 transform -translate-y-1/2 right-3">
+              <Image
+                src={send}
+                width={16}
+                height={16}
+                alt="Send icon"
+                className="w-4 h-4 "
+              />
             </button>
           </div>
         </div>

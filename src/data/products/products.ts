@@ -10,9 +10,10 @@ export const products = [
     ratingQuantity: 35,
     img: '/images/products/lays.png',
     images: [
-      '/images/products/lays.png',
-      '/images/products/lays.png',
-      '/images/products/lays.png',
+      '/images/products/lays-3.png',
+      '/images/products/lays-2.png',
+      '/images/products/lays-1.png',
+      '/images/products/lays-1.png',
     ], // Additional images
     keyFeatures: [
       'High protein content',
@@ -148,11 +149,12 @@ export const products = [
     ecommercePrice: '640',
     ratings: '4',
     ratingQuantity: 35,
-    img: '/images/products/gaming.png',
+    img: '/images/products/playstation-5.png',
     images: [
-      '/images/products/gaming.png',
-      '/images/products/gaming.png',
-      '/images/products/gaming.png',
+      '/images/products/playstation-1.png',
+      '/images/products/playstation-2.png',
+      '/images/products/playstation-3.png',
+      '/images/products/playstation-4.png',
     ],
     condition: 'new',
     variant: ['black', 'red'],
