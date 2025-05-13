@@ -1,28 +1,30 @@
-import Image from 'next/image';
-import React from 'react';
+'use client';
 
-// react icons
-import { FaArrowLeftLong } from 'react-icons/fa6';
+import Link from 'next/link';
 
-const Page404 = () => {
+export default function NotFound() {
   return (
-    <div className="boxShadow px-10 w-full flex items-center flex-col justify-center py-20 rounded-xl bg-tertiary">
-      <Image
-        width={500}
-        height={500}
-        src="https://i.ibb.co/LvLq6d3/Group-29.png"
-        alt="illustration"
-        className="w-full lg:w-[400px]"
-      />
-      <p className="text-[#fff] text-[1.2rem] w-full lg:w-[55%] text-center">
-        Oops it seems you follow backlink
-      </p>
+    <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-gray-50">
+      <div className="max-w-md w-full text-center space-y-6">
+        {/* Simple 404 number */}
+        <div className="text-8xl font-bold text-gray-300">404</div>
 
-      <button className="py-3 px-6 sm:px-8 rounded-full bg-[#fff] text-black mt-4 flex items-center gap-[10px]">
-        <FaArrowLeftLong /> Back to home
-      </button>
+        {/* Main message */}
+        <h1 className="text-3xl font-medium text-gray-800">Page Not Found</h1>
+
+        {/* Description */}
+        <p className="text-gray-500">
+          The page you&apos;re looking for doesn&apos;t exist or has been moved.
+        </p>
+
+        {/* Home button */}
+        <Link
+          href="/"
+          className="inline-block mt-6 px-6 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-colors"
+        >
+          Return to Home
+        </Link>
+      </div>
     </div>
   );
-};
-
-export default Page404;
+}
