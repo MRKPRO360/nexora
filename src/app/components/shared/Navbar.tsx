@@ -77,9 +77,9 @@ function Navbar() {
             ))}
           </ul>
 
-          <div className="flex items-center justify-between w-full gap-6 mt-3 lg:mt-0 lg:w-auto">
+          <div className="flex items-center justify-between w-full gap-6 mt-3 lg:mt-0 lg:w-auto flex-wrap ">
             {
-              <div ref={dropdownRef} className="relative">
+              <div ref={dropdownRef} className="relative order-1 sm:order-0">
                 <button
                   onClick={toggleDropdown}
                   className="flex items-center gap-1 py-1 px-2 lg:hidden bg-tertiary text-bgLight rounded-md cursor-pointer"
@@ -89,24 +89,24 @@ function Navbar() {
                 </button>
 
                 {isCategoryOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-[240px] z-50 border bg-white shadow-lg rounded-md">
+                  <div className="absolute top-full left-0 mt-2 w-[240px] p-4 mx-auto z-50 rounded-md overflow-hidden bg-white shadow-md">
                     <SideNav />
                   </div>
                 )}
               </div>
             }
-            <div className="relative mr-auto">
+            <div className="relative mr-auto order-3 sm:order-0 w-full sm:w-auto bg-secondaryPink">
               <input
-                className="block pl-5 pr-3 py-[7px] rounded-md bg-secondaryPink placeholder:text-xs placeholder:text-textGray outline-none transition duration-300 focus:ring-1 focus:ring-textDark text-textDark text-md
+                className="block pl-5 pr-3 py-[7px] rounded-md  placeholder:text-xs placeholder:text-textGray outline-none transition duration-300 focus:ring-1 focus:ring-textDark text-textDark text-md
               sm:w-96 md:w-[450px] lg:w-auto
               "
                 type="text"
                 placeholder="What are you looking for?"
               />
-              <GoSearch className="absolute right-3 top-[25%] text-2xl" />
+              <GoSearch className="absolute  right-3 top-[25%] text-2xl" />
             </div>
 
-            <div className="flex items-center gap-4 ">
+            <div className="order-2 flex items-center gap-4 sm:order-0 ">
               <GoHeart className="text-2xl" />
               <ExSheet />
               <Link href="/addProduct">
