@@ -8,7 +8,7 @@ import { IItem } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { NXContentModal } from '@/app/components/utils/NXContentModal';
+import { EXContentModal } from '@/app/components/utils/EXContentModal';
 import { FaMinus, FaPlus } from 'react-icons/fa';
 import { useAppDispatch } from '@/redux/hooks';
 import { addProducts } from '@/redux/features/cartSlice';
@@ -98,7 +98,7 @@ function ProductCard({ product }: { product: IItem }) {
           </div>
         </div>
       </div>
-      <NXContentModal
+      <EXContentModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         size="xl"
@@ -169,7 +169,7 @@ function ProductCard({ product }: { product: IItem }) {
             </div>
           </div>
         </div>
-      </NXContentModal>
+      </EXContentModal>
     </div>
   );
 }

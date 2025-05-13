@@ -6,15 +6,13 @@ interface ModalProps {
   onClose: () => void;
   children: ReactNode;
   title?: string;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
 }
 
-export const NXContentModal = ({
+export const EXContentModal = ({
   isOpen,
   onClose,
   children,
   title,
-  size = 'md',
 }: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
 

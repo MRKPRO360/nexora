@@ -1,10 +1,3 @@
-import {
-  FaFacebookF,
-  FaTwitter,
-  FaInstagram,
-  FaLinkedinIn,
-} from 'react-icons/fa';
-
 import qrCode from '@/assets/Footer/Qrcode 1.png';
 import frame from '@/assets/Footer/Frame 718.png';
 import facebook from '@/assets/Footer/Icon-Facebook.svg';
