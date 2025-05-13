@@ -1,13 +1,21 @@
 'use client';
 import { GoSearch, GoHeart } from 'react-icons/go';
-import { FaBars, FaTimes } from 'react-icons/fa';
-import { useState } from 'react';
+import { FaBars, FaTimes, FaUser } from 'react-icons/fa';
+import { useEffect, useRef, useState } from 'react';
 import NavLink from '../utils/NavLink';
 import SmallNav from '../utils/SmallNav';
 import ExSheet from '../utils/EXSheet';
+import Link from 'next/link';
+import { TbCategory2 } from 'react-icons/tb';
+import SideNav from '../module/home/HomeBanner/SideNav';
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  const toggleDropdown = () => setIsCategoryOpen((prev) => !prev);
+
   const toggleSidebar = () => {
     setIsOpen((prevOpen) => !prevOpen);
   };
@@ -18,6 +26,22 @@ function Navbar() {
     { path: '/about', text: 'About' },
     { path: '/sign-up', text: 'Sign Up' },
   ];
+
+  //  CLOSING DROPDOWN ON OUTSIDE CLICK
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setIsCategoryOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
     <div>
@@ -54,6 +78,23 @@ function Navbar() {
           </ul>
 
           <div className="flex items-center justify-between w-full gap-6 mt-3 lg:mt-0 lg:w-auto">
+            {
+              <div ref={dropdownRef} className="relative">
+                <button
+                  onClick={toggleDropdown}
+                  className="flex items-center gap-1 py-1 px-2 lg:hidden bg-tertiary text-bgLight rounded-md cursor-pointer"
+                >
+                  <TbCategory2 />
+                  <span>Categories</span>
+                </button>
+
+                {isCategoryOpen && (
+                  <div className="absolute top-full left-0 mt-2 w-[240px] z-50 border bg-white shadow-lg rounded-md">
+                    <SideNav />
+                  </div>
+                )}
+              </div>
+            }
             <div className="relative mr-auto">
               <input
                 className="block pl-5 pr-3 py-[7px] rounded-md bg-secondaryPink placeholder:text-xs placeholder:text-textGray outline-none transition duration-300 focus:ring-1 focus:ring-textDark text-textDark text-md
@@ -68,6 +109,9 @@ function Navbar() {
             <div className="flex items-center gap-4 ">
               <GoHeart className="text-2xl" />
               <ExSheet />
+              <Link href="/addProduct">
+                <FaUser className="text-xl" />
+              </Link>
             </div>
           </div>
         </div>

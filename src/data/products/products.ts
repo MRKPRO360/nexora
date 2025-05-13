@@ -10,10 +10,10 @@ export const products = [
     ratingQuantity: 35,
     img: '/images/products/lays.png',
     images: [
-      '/images/products/lays-3.png',
-      '/images/products/lays-2.png',
-      '/images/products/lays-1.png',
-      '/images/products/lays-1.png',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
+      '/images/products/lays.png',
     ], // Additional images
     keyFeatures: [
       'High protein content',
@@ -35,6 +35,7 @@ export const products = [
     ratingQuantity: 95,
     img: '/images/products/camera.png',
     images: [
+      '/images/products/camera.png',
       '/images/products/camera.png',
       '/images/products/camera.png',
       '/images/products/camera.png',
@@ -62,6 +63,7 @@ export const products = [
       '/images/products/laptop.png',
       '/images/products/laptop.png',
       '/images/products/laptop.png',
+      '/images/products/laptop.png',
     ],
     keyFeatures: [
       '15.6" FHD 144Hz Display',
@@ -82,6 +84,7 @@ export const products = [
     ratingQuantity: 145,
     img: '/images/products/cream.png',
     images: [
+      '/images/products/cream.png',
       '/images/products/cream.png',
       '/images/products/cream.png',
       '/images/products/cream.png',
@@ -108,6 +111,7 @@ export const products = [
       '/images/products/car.png',
       '/images/products/car.png',
       '/images/products/car.png',
+      '/images/products/car.png',
     ],
     variant: ['red', 'black'],
     keyFeatures: [
@@ -128,6 +132,7 @@ export const products = [
     ratingQuantity: 35,
     img: '/images/products/lays.png',
     images: [
+      '/images/products/boot.png',
       '/images/products/boot.png',
       '/images/products/boot.png',
       '/images/products/boot.png',
@@ -176,6 +181,7 @@ export const products = [
     ratingQuantity: 55,
     img: '/images/products/jacket.png',
     images: [
+      '/images/products/jacket.png',
       '/images/products/jacket.png',
       '/images/products/jacket.png',
       '/images/products/jacket.png',

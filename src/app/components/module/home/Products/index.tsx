@@ -29,7 +29,7 @@ function Products() {
 
   if (loading)
     return (
-      <div className="mt-[60px] grid grid-cols-1  gap-3 sm:grid-cols-3 xl:grid-cols-4  md:gap-x-[30px] md:gap-y-15">
+      <div className="mt-[60px] mb-[67px]  grid grid-cols-1  gap-3 sm:grid-cols-3 xl:grid-cols-4  md:gap-x-[30px] md:gap-y-15">
         {[1, 2, 3, 4, 5, 6, 7, 8].map((el, id) => (
           <ProductCardSkeleton key={el} />
         ))}

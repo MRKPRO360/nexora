@@ -108,8 +108,10 @@ const ExSheet = () => {
         }`}
       >
         {/* Header */}
-        <div className="flex justify-between items-center p-4 border-b-2 border-b-textGray/10">
-          <h2 className="text-xl font-bold">Your Cart ({products.length})</h2>
+        <div className="flex justify-between items-center border-b-2 border-b-textGray/10">
+          <h2 className="text-xl font-bold p-3">
+            Your Cart ({products.length})
+          </h2>
           <button
             onClick={() => setIsOpen(false)}
             className="hover:text-tertiary cursor-pointer"
@@ -120,9 +122,9 @@ const ExSheet = () => {
         </div>
 
         {/* Cart Items */}
-        <div className="h-[calc(100%-180px)] overflow-y-auto p-4">
+        <div className="h-[calc(100%-180px)] overflow-y-auto ">
           {products.length === 0 ? (
-            <div className="flex flex-col items-center justify-center h-full text-gray-500">
+            <div className="flex flex-col items-center justify-center h-full text-gray-500 p-3">
               <IoCartOutline className="h-16 w-16 mb-4" />
               <p>Your cart is empty</p>
             </div>
@@ -132,7 +134,7 @@ const ExSheet = () => {
                 key={product.id}
                 className="flex gap-4 py-4 border-b-2 shadow-md shadow-tertiary/10 border-b-textGray/10 last:border-b-0"
               >
-                <div className="relative w-20 h-20 flex-shrink-0">
+                <div className="relative w-20 h-20 flex-shrink-0 p-3">
                   <Image
                     src={product.img}
                     alt={product.title}
@@ -154,7 +156,31 @@ const ExSheet = () => {
 
                   <div className="flex items-center justify-between mt-2">
                     {/* Quantity Controls */}
-                    <div className="flex items-center">
+
+                    <div className="flex items-center border border-textGray/30 rounded">
+                      <button
+                        onClick={() => handleDecrementQuantity(product)}
+                        className="px-3 py-2 text-primaryDark hover:bg-gray-100 transition-colors"
+                      >
+                        <FaMinus />
+                      </button>
+                      <span className="px-[34px] text-[20px] py-[.5px] border-x border-textGray/30">
+                        <span className=" w-11 px-3 self-stretch  ">
+                          {product.orderQuantity >= 1 &&
+                          product.orderQuantity <= 9
+                            ? `0${product.orderQuantity}`
+                            : product.orderQuantity}
+                        </span>
+                      </span>
+                      <button
+                        onClick={() => handleIncrementQuantity(product)}
+                        className="px-3 py-2 text-primaryDark hover:bg-gray-100 transition-colors"
+                      >
+                        <FaPlus />
+                      </button>
+                    </div>
+
+                    {/* <div className="flex items-center">
                       <FaMinus
                         onClick={() => handleDecrementQuantity(product)}
                         className="text-3xl  cursor-pointer rounded-l-[4px] border-y-2 border-l-2 border-l-gray-400 border-y-gray-400 text-bgDark"
@@ -169,7 +195,7 @@ const ExSheet = () => {
                         onClick={() => handleIncrementQuantity(product)}
                         className="text-3xl  cursor-pointer rounded-r-[4px] border-y-2 border-r-2 border-r-gray-400 border-y-gray-400 text-bgDark"
                       />
-                    </div>
+                    </div> */}
 
                     {/* Remove button */}
                     <button

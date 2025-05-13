@@ -1,9 +1,7 @@
-import { FaHeart, FaMinus, FaPlus, FaStar } from 'react-icons/fa';
-import playstation5 from '@/assets/ProductDetails/playstation-5.png';
+import { FaMinus, FaPlus } from 'react-icons/fa';
 import Image from 'next/image';
 import { IItem } from '@/types';
 import { TiStarFullOutline, TiStarOutline } from 'react-icons/ti';
-import { TbTruckDelivery } from 'react-icons/tb';
 
 import returnIcon from '@/assets/ProductDetails/return.png';
 import deliveryIcon from '@/assets/ProductDetails/deliver.png';
